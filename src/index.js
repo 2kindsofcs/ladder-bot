@@ -2,11 +2,11 @@ const { RTMClient } = require('@slack/rtm-api');
 const token = process.env.SLACK_BOT_TOKEN;
 const rtm = new RTMClient(token);
 
-(async () => {
-    const { self, team } = await rtm.start();
-})();
+// (async () => {
+//     const { self, team } = await rtm.start();
+// })();
 
-console.log(team);
+rtm.start();
 
 rtm.on('message', async (event) => {
     if(!event.text.includes("사다리")) {
