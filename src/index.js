@@ -8,11 +8,11 @@ const rtm = new RTMClient(token);
 
 console.log(team);
 
-rtm.on('message', (event) => {
+rtm.on('message', async (event) => {
     if(!event.text.includes("사다리")) {
         return
     } else {
-        const reply = await rtm.sendMessage(`사다리를 타자`, event.channel)
+        const reply = await rtm.sendMessage("사다리를 타자", event.channel)
         console.log(reply)
     }
 })
