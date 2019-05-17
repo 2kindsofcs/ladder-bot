@@ -1,19 +1,27 @@
 const { RTMClient } = require('@slack/rtm-api');
-const token = process.env.SLACK_BOT_TOKEN;
-const rtm = new RTMClient(token);
+const { WebClient } = require('@slack/client');
+const express = require('express');
+const bodyParser = require('body-parser');
 
-// (async () => {
-//     const { self, team } = await rtm.start();
-// })();
 
-rtm.start();
+const app = express();
+const web = new WebClient(token1);
 
-rtm.on('message', async (event) => {
-    if(!event.text.includes("사다리")) {
-        return
-    } else {
-        const reply = await rtm.sendMessage("사다리를 타자", event.channel)
-        console.log(reply)
-    }
+app.use(bodyParser.urlencoded({extended: true}));
+app.listen(80);
+
+
+
+app.post('/', async (req, res) => {
+    const data = req.body;
+    const text = data.text;
+    const channelId = data.channel_id;
+    console.log(channelId);
+    const membersData = await web.conversations.members({
+        channel: channelId,
+    });
+    console.log(membersData.members);
+    const chapterNum = text.split('/');
+    res.status(200).send("hey");
 })
 
