@@ -1,0 +1,26 @@
+{
+  "name": "ladder-bot",
+  "version": "1.0.0",
+  "description": "사다리타기 해줘",
+  "main": "index.js",
+  "scripts": {
+    "test": "node src\\index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2kindsofcs/ladder-bot.git"
+  },
+  "author": "2kindsofcs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/2kindsofcs/ladder-bot/issues"
+  },
+  "homepage": "https://github.com/2kindsofcs/ladder-bot#readme",
+  "dependencies": {
+    "@slack/rtm-api": "^5.0.1"
+  },
+  "engines":{
+    "node": "10.15.3",
+    "npm": "6.4.1"
+  }
+}
